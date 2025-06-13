@@ -10,13 +10,12 @@ import lombok.*;
 @MappedSuperclass
 @Getter
 @Setter
-public class Identificacador {
+public class Identificador {
 	 
 	@Id
 	@Hidden
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid",strategy = "uuid")
 	@Column(length = 32)
-	String oid;
-	
+	private String oid;
 }

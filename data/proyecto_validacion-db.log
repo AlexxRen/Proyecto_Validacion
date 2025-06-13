@@ -1,19 +1,2 @@
-/*C1*/SET SCHEMA SYSTEM_LOBS
-INSERT INTO BLOCKS VALUES(0,2147483647,0)
-COMMIT
-/*C2*/SET SCHEMA PUBLIC
-DISCONNECT
 /*C3*/SET SCHEMA PUBLIC
-create table Anuncio (IDAnuncion integer not null, fotos varchar(32), observaciones varchar(50), precio numeric(19,2), categoria_id varchar(32), primary key (IDAnuncion))
-create table Categoria (id varchar(32) not null, descripcion varchar(50), primary key (id))
-create table IMAGES (ID varchar(32) not null, GALLERY varchar(32), image varbinary(16777216), primary key (ID))
-create table OXDISCUSSIONCOMMENTS (id varchar(32) not null, comment clob(16777216), discussionId varchar(32), time timestamp, userName varchar(30), primary key (id))
-create table Persona (DTYPE varchar(31) not null, oid varchar(32) not null, apellidos varchar(50), direccion varchar(125), nombres varchar(50), numeroCedula integer, numeroTelefono integer, nombresComercial varchar(25), descripcion varchar(50), telefonoVendedor integer, rol_oid varchar(32), primary key (oid))
-create table Rol (oid varchar(32) not null, descripcion varchar(50), primary key (oid))
-create index IDXbhlx4vunn24ym1tbrlgq8g30m on OXDISCUSSIONCOMMENTS (discussionId)
-alter table Anuncio add constraint FKdc74lpcmxj38c3yn6xh0st7ic foreign key (categoria_id) references Categoria
-alter table Persona add constraint FKpq7iwybp17ibfm030vhg0leoy foreign key (rol_oid) references Rol
-INSERT INTO CATEGORIA VALUES('4028b8819747174b0197471756ec0000','asd')
-COMMIT
-DELETE FROM CATEGORIA WHERE ID='4028b8819747174b0197471756ec0000'
-COMMIT
+DISCONNECT
